@@ -2,7 +2,7 @@
 Demo publisher, book and author persistence and notification microservices for notifying about new books
 (made with an online tutorial) <br />
 
-Each microservice has a persistence layer implemented with H2 database and initialized by Flyway. Microservices are deployed on a docker container and communicating via Kafka topics.<br />
+Each microservice has a persistence layer implemented with H2 database and initialized by Flyway. Microservices are deployed on Docker containers and communicating via Kafka topics.<br />
 
 Microservice *book-publisher* persists books and authors in its database and sends books to *books.published* Kafka topic, every 20 seconds.<br />
 *book-persistence* and *author-persistence* microservices consume books and authors from *books.published* topic, respectively and store them in their local databases (H2). They also send notifications to *notification.created* topic about the data they persisted.<br />
